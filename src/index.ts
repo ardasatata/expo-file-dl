@@ -38,6 +38,7 @@ export interface EFDL_Options {
   notificationType?: EFDL_NotificationType;
   notificationContent?: EDFL_NotificationContent;
   downloadProgressCallback?: FileSystem.DownloadProgressCallback;
+  uti?: string
 }
 
 export type EDFL_NotificationState = "downloading" | "finished" | "error";
@@ -214,7 +215,7 @@ export async function downloadToFolder(
         (x) => !downloadedFile.uri.toLocaleLowerCase().endsWith(x)
       )
     ) {
-      const UTI = "public.item";
+      const UTI = options?.uti ?? "public.item";
       const shareResult = await Sharing.shareAsync(downloadedFile.uri, {
         UTI,
       });

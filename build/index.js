@@ -134,7 +134,7 @@ export async function downloadToFolder(uri, filename, folder, channelId, options
         // we use "Sharing" library and quit early (let iOS handle it)
         if (ios &&
             imageFileExts.every((x) => !downloadedFile.uri.toLocaleLowerCase().endsWith(x))) {
-            const UTI = "public.item";
+            const UTI = options?.uti ?? "public.item";
             const shareResult = await Sharing.shareAsync(downloadedFile.uri, {
                 UTI,
             });

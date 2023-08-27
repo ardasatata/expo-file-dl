@@ -12,6 +12,8 @@ export interface EFDL_Options {
     notificationType?: EFDL_NotificationType;
     notificationContent?: EDFL_NotificationContent;
     downloadProgressCallback?: FileSystem.DownloadProgressCallback;
+    uti?: string;
 }
 export declare type EDFL_NotificationState = "downloading" | "finished" | "error";
 export declare function downloadToFolder(uri: string, filename: string, folder: string, channelId: string, options?: EFDL_Options): Promise<boolean>;
+//# sourceMappingURL=index.d.ts.map
